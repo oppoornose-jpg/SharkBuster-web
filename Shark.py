@@ -73,7 +73,7 @@ headers = {
 }
 ingored = (".jpg", ".png", ".css", ".js", ".svg", ".ico")
 
-baseline = None   # موجودة مثل ما هي
+baseline = None   
 
 r = requests.get(host)
 print("status ",r.status_code)
@@ -119,9 +119,9 @@ async def check(session, p):
                 headers=headers
             ) as r:
 
-                # ===== ADDITION (prevent crash) =====
+                
                 location = ""
-                # ===================================
+                
 
                 if r.status in (301, 302, 307):
                     location = r.headers.get("Location", "").lower()
