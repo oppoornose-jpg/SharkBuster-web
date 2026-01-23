@@ -63,7 +63,6 @@ def check_update():
                 print("[*] Updating tool to latest version...")
                 os.system("git pull")
                 
-                # بعد التحديث توقف البرنامج
                 if os.path.isfile("version.txt"):
                     with open("version.txt", "r") as f:
                         V_local = f.read().strip()
@@ -107,7 +106,7 @@ time.sleep(2.5)
 target_line = 7
 colors = list(range(0, 256))
 
-end_time = time.time() + 2.9
+end_time = time.time() + 3.3
 while time.time() < end_time:
     out = ""
     for i, c in enumerate(text):
