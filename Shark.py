@@ -1,3 +1,4 @@
+os.system("clear")
 try:
     import requests, os, colorama, threading, time, asyncio, aiohttp
 except ImportError:
