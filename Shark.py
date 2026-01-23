@@ -74,8 +74,8 @@ def check_update():
         else:
             print(f"[*] Tool is up-to-date (version {V})")
     except Exception as e:
-        print(f"[!] Update check failed: {e}")
-
+       print(f"[!] Update check failed: {e}")
+       sys.exit(0)
 
 check_update()
 while True:
