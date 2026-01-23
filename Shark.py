@@ -18,7 +18,7 @@ def boot():
 boot() 
 
 try:
-    import requests, os, coloroma, threading, time, asyncio, aiohttp
+    import requests, os, colorama, threading, time, asyncio, aiohttp
 except ImportError:
             print(Fore.RED + "Error: missing libraries")
             while True:
@@ -45,13 +45,22 @@ V = "1.0.0"
 
 def check_update():
     try:
-        u = "https://raw.githubusercontent.com/oppoornose-jpg/SharkBuster/main/version.txt"
-        if requests.get(u, timeout=3).text.strip() != V:
+        url = "https://raw.githubusercontent.com/oppoornose-jpg/SharkBuster/main/version.txt"
+        remote_version = requests.get(url, timeout=3).text.strip()
+
+        if remote_version != V:
             print("[*] Update found, updating...")
-            os.system("git pull")
-            exit()
-    except:
-        pass
+            # تأكد أن المشروع git repo
+            if os.path.isdir(".git"):
+                os.system("git pull")
+                print("[*] Update completed, restart the tool")
+            else:
+                print("[!] Can't auto-update, this folder is not a git repository")
+            sys.exit(0)  # بديل آمن لـ exit()
+        else:
+            print("[*] Tool is up-to-date!")
+    except Exception as e:
+        print(f"[!] Update check failed: {e}")
 
 check_update()
 while True:
