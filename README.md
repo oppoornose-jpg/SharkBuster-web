@@ -3,7 +3,9 @@
 ![SharkBuster](https://media.istockphoto.com/id/1068306898/vector/hair.jpg?s=1024x1024&w=is&k=20&c=qeCVcU9D-ub846CXQKz9HXgwx2wQa24HWpJjBQUysbM=)
 An tool for finding secret web paths or Discovery tool.
 Disclaimer: ⚠️you are responsible for your use of the tool ⚠️
-
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
+![OS](https://img.shields.io/badge/Tested%20on-Kali%20Linux-green)
+![Purpose](https://img.shields.io/badge/For-Educational-red)
 you must before cloning it download 
 those libraries
 pip3 install requests
