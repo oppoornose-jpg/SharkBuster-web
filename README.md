@@ -3,6 +3,8 @@
 ![SharkBuster](https://media.istockphoto.com/id/1068306898/vector/hair.jpg?s=1024x1024&w=is&k=20&c=qeCVcU9D-ub846CXQKz9HXgwx2wQa24HWpJjBQUysbM=)
 An tool for finding secret web paths or Discovery tool.
 Disclaimer: ⚠️you are responsible for your use of the tool ⚠️
+![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
+![OS](https://img.shields.io/badge/Tested%20on-Kali%20Linux-green)
 <span style="color:#fr5555"><b>For:</b> for legal hacking</span><br>
 <span style="color:#50fa7b"><b>Tested on:</b> Python 3.7+</span><br>
 <span style="color:#8be9fd"><b>Environment:</b> Kali Linux PC / Kali rootless on termux (mobile)</span>
@@ -24,10 +26,14 @@ you must move paths file to SharkBuster file
 ```bash
 # Clone
 git clone https://github.com/oppoornose-jpg/SharkBuster.git
+# wordlist file
+<mv wordlistfilename.txt> SharkBuster
+# enter SharkBuster directory
 cd SharkBuster
 
 # Install dependencies
 pip3 install requests colorama aiohttp
+
 
 # Run
 python3 Shark.py
