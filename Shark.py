@@ -1,6 +1,6 @@
 print("SharkBuster")
 try:
-    import requests, os, colorama, threading, time, asyncio, aiohttp
+    import requests, os, colorama, threading, time, asyncio, aiohttp, shutil
 except ImportError:
             
             print("Error: missing libraries")
@@ -10,8 +10,10 @@ except ImportError:
                     print("installing...")
                     print("installing speed depends on your internet speed")
                     os.system("sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq python3-requests python3-colorama python3-aiohttp")
+                    print("if you have an error install shutil library if its still report it in issues")
                     break
                 elif req == "no":
+                    print("you must install required things for running tool correctly.")
                     exit()
                     break
                 else:
@@ -26,7 +28,49 @@ import time
 import asyncio
 import aiohttp
 init(autoreset=True)
+def install_whisker_menu():
+    
+    import shutil
 
+    home = os.path.expanduser("~")
+    app_dir = os.path.join(home, ".local/share/applications")
+    icon_dir = os.path.join(home, ".local/share/icons")
+
+    os.makedirs(app_dir, exist_ok=True)
+    os.makedirs(icon_dir, exist_ok=True)
+
+    desktop_path = os.path.join(app_dir, "sharkbuster-web.desktop")
+    icon_target = os.path.join(icon_dir, "sharkbuster-web.png")
+
+    
+    if os.path.isfile(desktop_path):
+        return
+
+    
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    icon_source = os.path.join(script_dir, "image.png")
+
+    if not os.path.isfile(icon_source):
+        print("Icon image.png not found")
+        return
+
+    shutil.copy(icon_source, icon_target)
+
+    desktop_entry = f"""[Desktop Entry]
+Name=Sharkbuster Web
+Comment=Web directory brute force tool
+Exec=python3 {os.path.abspath(__file__)}
+Icon=sharkbuster-web
+Terminal=true
+Type=Application
+Categories=Kali;WebApplication;Security;
+"""
+
+    with open(desktop_path, "w") as f:
+        f.write(desktop_entry)
+
+
+install_whisker_menu()
         
 
 def boot():
