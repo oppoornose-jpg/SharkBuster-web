@@ -293,17 +293,17 @@ async def run():
     global baseline
 
     connector = aiohttp.TCPConnector(limit=0)
-    async with aiohttp.ClientSession(connector=connector) as session:
-        headers = {
-        "User-Agent": random.choice(USER_AGENTS)
-        }
+    async with aiohttp.ClientSession(
+        connector=connector,
+        headers={"User-Agent": random.choice(USER_AGENTS)}
+    ) as session:
 
         try:
             async with session.get(
                 base + "random_not_exist_123456789",
                 timeout=aiohttp.ClientTimeout(total=3.7),
                 allow_redirects=False,
-                headers=headers
+                headers={"User-Agent": random.choice(USER_AGENTS)}
             ) as r:
                 baseline = len(await r.read())
                
