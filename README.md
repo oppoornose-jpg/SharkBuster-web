@@ -9,7 +9,9 @@ Disclaimer: ⚠️you are responsible for your use of the tool ⚠️
 <span style="color:#50fa7b"><b>Tested on:</b> Python 3.7+</span><br>
 <span style="color:#8be9fd"><b>Environment:</b> Kali Linux PC / Kali rootless on termux (mobile)</span>
 
-
+New features added in version 2.0.8 :
+1 - maked speed for finding hiding paths for websites faster
+2 - added tool in whisker menu for (kali linux , kali nethunter rootless on mobile , kali nethunter pc ,all kali versions)
 
 
 you must before cloning it download 
