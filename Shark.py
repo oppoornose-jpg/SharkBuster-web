@@ -104,7 +104,7 @@ if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
         V = f.read().strip()
 else:
-    V = "2.0.9"
+    V = "2.0.3"
 
 
 def check_update():
@@ -261,8 +261,8 @@ async def check(session, p):
                     url = f"{base+p} {r.status}"
                     print(f"{color}{url}{Fore.RESET}")
 
-                if url not in results:
-                    results.append(url)
+                    if url not in results:
+                        results.append(url)
 
         except Exception:
             pass
