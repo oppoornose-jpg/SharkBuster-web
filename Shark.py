@@ -56,15 +56,14 @@ def install_whisker_menu():
 
     shutil.copy(icon_source, icon_target)
 
-    desktop_entry = f""" [Desktop Entry]
+    desktop_entry = f"""[Desktop Entry]
 Name=SharkBuster Web
 Comment=Web directory brute force tool
-Exec=python3 /home/kali/SharkBuster/Shark.py
+Exec=python3 {os.path.abspath(__file__)}
 Icon=sharkbuster-web
 Terminal=true
 Type=Application
 Categories=Kali;Services;
-
 """
 
     with open(desktop_path, "w") as f:
@@ -95,7 +94,7 @@ if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
         V = f.read().strip()
 else:
-    V = "2.0.6"
+    V = "2.0.7"
 
 
 def check_update():
