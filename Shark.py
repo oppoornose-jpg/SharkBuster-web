@@ -179,17 +179,11 @@ host = input("target host or url: ")
 if not host.startswith(("http://", "https://")):
     host = "https://" + host
 
-if not host:
+while not host:
     print(Fore.RED + "you should enter target host or url")
     host = input("target full url: ")
     time.sleep(3)
-if not host:
-    print(Fore.RED + "you should enter url")
-    host = input("target full url: ")
-
-if not host:
-     print(Fore.RED+ "you should enter url")
-     host = input("target full url: ")
+    
 
 ingored1= ("login", "signin", "auth")
 valid = {200,301,302,307,401,403,429}
@@ -204,9 +198,9 @@ r = requests.get(host)
 print("status ",r.status_code)
 
 wordlist = input("wordlist file: ")
-if not wordlist:
-    print(Fore.RED + "You should enter an paths file")
-    password = input("wordlist file: ")
+while not wordlist or not os.path.isfile(wordlist):
+    print(Fore.RED + "Invalid wordlist file")
+    print(wordlist)
 
 word = (Fore.GREEN + " wordlist: ")
 base = host.rstrip("/") + "/"
