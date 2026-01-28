@@ -294,12 +294,15 @@ async def run():
 
     connector = aiohttp.TCPConnector(limit=0)
     async with aiohttp.ClientSession(connector=connector) as session:
-
+    headers = {
+            "User-Agent": random.choice(USER_AGENTS)
+    }
+    
         
         try:
-            headers = {
-               "User-Agent": random.choice(USER_AGENTS)
-            }
+            
+               
+            
             async with session.get(
                 headers = {
                    "User-Agent": random.choice(USER_AGENTS)
