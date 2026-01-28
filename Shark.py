@@ -56,14 +56,15 @@ def install_whisker_menu():
 
     shutil.copy(icon_source, icon_target)
 
-    desktop_entry = f"""[Desktop Entry]
-Name=Sharkbuster Web
+    desktop_entry = f""" [Desktop Entry]
+Name=SharkBuster Web
 Comment=Web directory brute force tool
-Exec=python3 {os.path.abspath(__file__)}
+Exec=python3 /home/kali/SharkBuster/Shark.py
 Icon=sharkbuster-web
 Terminal=true
 Type=Application
-Categories=Kali;WebApplication;Security;
+Categories=Kali;InformationGathering;
+
 """
 
     with open(desktop_path, "w") as f:
