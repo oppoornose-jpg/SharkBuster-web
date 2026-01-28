@@ -32,9 +32,9 @@ init(autoreset=True)
 results = []
 def save_progress():
     if results:
-        with open("example.txt", "w") as f:
+        with open("results.txt", "w") as f:
             f.write("\n".join(results))
-        print("\nsaved progress results in example.txt")
+        print("\nsaved progress results in results.txt")
 atexit.register(save_progress)
 signal.signal(signal.SIGTSTP, lambda s, f: exit())
 signal.signal(signal.SIGTERM, lambda s, f: exit())        
@@ -264,7 +264,9 @@ async def check(session, p):
 
                 if r.status in valid and r.status != 204:
                     color = status_color(r.status)
-                    print(f"{color}{base+p} {r.status}{Fore.RESET}")
+                    url = f"{base+p} {r.status}"
+                    print(f"{color}{url}{Fore.RESET}")
+                    results.append(url)
 
         except Exception:
             pass
