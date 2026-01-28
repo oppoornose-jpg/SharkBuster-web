@@ -122,7 +122,7 @@ if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
         V = f.read().strip()
 else:
-    V = "2.0.4"
+    V = "2.0.5"
 
 
 def check_update():
@@ -297,6 +297,9 @@ async def run():
 
         
         try:
+            headers = {
+               "User-Agent": random.choice(USER_AGENTS)
+            }
             async with session.get(
                 base + "random_not_exist_123456789",
                 timeout=aiohttp.ClientTimeout(total=3.7),
