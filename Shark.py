@@ -138,7 +138,7 @@ while True:
     choice = input("\nChoose an option: ").strip()
 
     if choice == "1":
-        os.system("python3 Shark.py")
+        os.system("python3 Shark4.py")
     elif choice == "2":
         os.system("python3 Shark3.py")
     elif choice == "0":
