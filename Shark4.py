@@ -144,7 +144,6 @@ word = (Fore.GREEN + " wordlist: ")
 base = host.rstrip("/") + "/"
 print("trying with url "+ host + word ,wordlist)
 print()
-sys.stdout.write("\033[s")
 sys.stdout.flush()
 sem = asyncio.Semaphore(200)
 lock = asyncio.Lock()
@@ -262,7 +261,7 @@ async def run():
                 await asyncio.gather(*(check(session, p) for p in batch))
 
 
-asyncio.run(run())
+
 def main():
     asyncio.run(run())
 if __name__ == "__main__":
