@@ -69,10 +69,7 @@ boot()
 
                           
 
-def customize():
-    os.system("clear")
-boot()
-os.system("clear")
+    
 text = "AUTHOUR: Owis          "  
 
 
