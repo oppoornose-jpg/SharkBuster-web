@@ -151,10 +151,8 @@ lock = asyncio.Lock()
 start_time = time.time()
 def print_counter():
     speed = tested / max(time.time() - start_time, 1)
-    sys.stdout.write("\033[u")        
-    sys.stdout.write("\033[2K")      
     sys.stdout.write(
-        f"[>] Tried: {tested} | Loaded: {loaded} | Speed: {int(speed)} req/s"
+        f"\r[>] Tried: {tested} | Loaded: {loaded} | Speed: {int(speed)} req/s"
     )
     sys.stdout.flush()
 
