@@ -143,11 +143,20 @@ while not wordlist or not os.path.isfile(wordlist):
 word = (Fore.GREEN + " wordlist: ")
 base = host.rstrip("/") + "/"
 print("trying with url "+ host + word ,wordlist)
-
+print()
+sys.stdout.write("\033[s")
+sys.stdout.flush()
 sem = asyncio.Semaphore(200)
 lock = asyncio.Lock()
 start_time = time.time()
-
+def print_counter():
+    speed = tested / max(time.time() - start_time, 1)
+    sys.stdout.write("\033[u")        
+    sys.stdout.write("\033[2K")      
+    sys.stdout.write(
+        f"[>] Tried: {tested} | Loaded: {loaded} | Speed: {int(speed)} req/s"
+    )
+    sys.stdout.flush()
 
 def status_color(code):
     if code == 200:
@@ -174,10 +183,9 @@ async def check(session, p):
         try:
             async with lock:
                 tested += 1
-                speed = tested / max(time.time() - start_time, 1)
+                print_counter()
  
-                sys.stdout.write(f"\r[>] Tried: {tested} | Loaded: {loaded} | Speed: {int(speed)} req/s")
-                sys.stdout.flush()
+                
             headers = {
                "User-Agent": random.choice(USER_AGENTS)
             }
@@ -213,7 +221,7 @@ async def check(session, p):
                         results.append(url)
                         sys.stdout.write("\n" + f"{color}{url}{Fore.RESET}")  
                         sys.stdout.flush()
-
+                        print_counter()
         except Exception:
             pass
 
