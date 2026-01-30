@@ -212,13 +212,9 @@ async def check(session, p):
                         return
 
                 if r.status in valid and r.status != 204:
-                    color = status_color(r.status)
-                    url = f"{base+p} {r.status}"
-                    if url not in results:
-                        results.append(url)
-                        sys.stdout.write("\n" + f"{color}{url}{Fore.RESET}")  
-                        sys.stdout.flush()
-                        
+                    return f"{status_color(r.status)}{base+p} {r.status}{Fore.RESET}"
+                return None  
+
         except Exception:
             pass
 
@@ -254,12 +250,30 @@ async def run():
                 loaded += 1
 
                 if len(batch) == batch_size:
-                    await asyncio.gather(*(check(session, p) for p in batch))
+                    results_batch = await asyncio.gather(*(check(session, p) for p in batch))
+
+                    async with lock:
+                        for res in results_batch:
+                            if res:
+                                print(res)
+                                results.append(res)
+                        print_counter()
+
                     batch.clear()
-
+        
             if batch:
-                await asyncio.gather(*(check(session, p) for p in batch))
+                results_batch = await asyncio.gather(
+                    *(check(session, p) for p in batch)
+                )
 
+                async with lock:
+                    for res in results_batch:
+                        if res:
+                            print(res)
+                            results.append(res)
+                    print_counter()
+
+                batch.clear()
 
 
 def main():
