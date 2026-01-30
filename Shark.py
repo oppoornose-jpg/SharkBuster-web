@@ -14,7 +14,7 @@ import os
 import sys
 import requests
 def install_whisker_menu():
-    
+    os.system("clear")
     import shutil
 
     home = os.path.expanduser("~")
