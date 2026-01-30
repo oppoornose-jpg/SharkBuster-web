@@ -62,7 +62,7 @@ if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
         V = f.read().strip()
 else:
-    V = "2.0.6"
+    V = "2.0.5"
 
 
 def check_update():
@@ -131,7 +131,7 @@ while True:
 
     
     print(YELLOW + "=== Shark Tools Launcher ===" + RESET)
-    print(f"{CYAN}1){RESET} SharkBuster-web - Web Discovery Tool for finding scret web paths like gobuster")
+    print(f"{CYAN}1){RESET} SharkBuster-web - Web Discovery Fast Tool for finding scret web paths like gobuster")
     print(f"{CYAN}2){RESET} SharkScan-web - tool for testing and scanning websites")
     print(f"{CYAN}0){RESET} Exit")
 
