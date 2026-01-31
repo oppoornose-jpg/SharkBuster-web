@@ -135,7 +135,7 @@ while True:
     print(f"{CYAN}2){RESET} SharkScan-web - tool for testing and scanning websites")
     print(f"{CYAN}0){RESET} Exit")
     
-    print(GREEN + "This tool automatically checks for updates and keeps itself up-to-date.
+    print(GREEN + "This tool automatically checks for updates and keeps itself up-to-date."
 Enjoy using it without any worries!
     choice = input("\nChoose an option: ").strip()
 
