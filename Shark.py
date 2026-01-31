@@ -59,7 +59,7 @@ Exec=python3 {os.path.abspath(__file__)}
 Icon=sharkbuster-web
 Terminal=true
 Type=Application
-Categories=Kali;Reconnaissance;
+Categories=Kali;Services and Other tools;
 """
 
     with open(desktop_path, "w") as f:
