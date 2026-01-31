@@ -15,6 +15,7 @@ import sys
 import requests
 def install_whisker_menu():
     os.system("clear")
+    
     import shutil
 
     home = os.path.expanduser("~")
@@ -43,12 +44,12 @@ def install_whisker_menu():
 
     desktop_entry = f"""[Desktop Entry]
 Name=SharkBuster Web
-Comment=Web testing tool
+Comment=Web scanning,recon,more  tool
 Exec=python3 {os.path.abspath(__file__)}
 Icon=sharkbuster-web
 Terminal=true
 Type=Application
-Categories=Kali;Services and Other Tools;
+Categories=Reconnaissance;Utility;
 """
 
     with open(desktop_path, "w") as f:
@@ -56,7 +57,25 @@ Categories=Kali;Services and Other Tools;
 
 
 install_whisker_menu()
-        
+os.system("mkdir -p ~/.local/share/desktop-directories ~/.config/menus")
+
+os.system("""echo '[Desktop Entry]
+Name=Reconnaissance
+Icon=security-high
+Type=Directory' > ~/.local/share/desktop-directories/kali-recon.directory""")
+
+os.system("""[ -f ~/.config/menus/applications.menu ] || \
+cp /etc/xdg/menus/applications.menu ~/.config/menus/""")
+
+os.system("""grep -q sharkbuster-web.desktop ~/.config/menus/applications.menu || \
+sed -i '/<\/Menu>/i \
+<Menu>\
+<Name>Reconnaissance</Name>\
+<Directory>kali-recon.directory</Directory>\
+<Include><Filename>sharkbuster-web.desktop</Filename></Include>\
+</Menu>' ~/.config/menus/applications.menu""")
+
+os.system("xfce4-panel -r")      
 
 if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
