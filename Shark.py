@@ -143,8 +143,8 @@ while True:
 
     
     print(YELLOW + "=== Shark Tools Launcher ===" + RESET)
-    print(f"{CYAN}1){RESET} SharkBuster-web - Web Discovery Fast Tool for finding scret web paths like gobuster")
-    print(f"{CYAN}2){RESET} SharkScan-web - tool for testing and scanning websites")
+    print(f"{CYAN}1){RESET} SharkBuster-web - Web Discovery Fast Tool for finding secret web paths like gobuster")
+    print(f"{CYAN}2){RESET} SharkBuster-Scan - tool for scanning websites.")
     print(f"{CYAN}0){RESET} Exit")
     
     print(GREEN + "This tool automatically checks for updates and keeps itself up-to-date.")
