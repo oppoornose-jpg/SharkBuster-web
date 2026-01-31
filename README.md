@@ -1,9 +1,10 @@
 ![SharkBuster](https://as1.ftcdn.net/v2/jpg/14/92/04/50/1000_F_1492045033_iMJcyP8rje4buwd0kBOlBWuyoXha5NGG.jpg)
 ![SharkBuster](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvbmh_4koS1GVr5NRT9s5GGFksvrUBd0shj3w3AhayUA&s)
 ![SharkBuster](https://media.istockphoto.com/id/1068306898/vector/hair.jpg?s=1024x1024&w=is&k=20&c=qeCVcU9D-ub846CXQKz9HXgwx2wQa24HWpJjBQUysbM=)
-SharkBuster‑web is a modular web discovery toolkit that includes multiple built‑in tools such as SharkBuster‑web and SharkScan‑web, accessible through a single launcher.
+SharkBuster is a modular multi‑tool suite that brings multiple utilities together under a single launcher.
+It includes specialized modules such as SharkBuster‑Web, SharkBuster-Scan with each module focusing on a specific task or domain.
 
-Each internal tool focuses on a specific web reconnaissance or discovery task.
+Each internal tool focuses on a specifc task or domain.
 No external tools are required.
 
 This tool is designed for website testing and discovery purposes.
