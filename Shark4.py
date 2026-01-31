@@ -263,3 +263,4 @@ if __name__ == "__main__":
         print("\n[!] Interrupted")
     finally:
         input("\nPress Enter to return to launcher...")
+        time.sleep(4.5)
