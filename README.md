@@ -11,7 +11,7 @@ No external tools are required.
 Disclaimer: ⚠️you are responsible for your use of the tool ⚠️
 ![Python](https://img.shields.io/badge/Python-3.7%2B-blue)
 ![OS](https://img.shields.io/badge/OS-Kali%20Linux-green)
-<span style="color:#fr5555"><b>For:</b> for legal hacking</span><br>
+<span style="color:#fr5555"><b>For:</b>legal hacking</span><br>
 <span style="color:#50fa7b"><b>Tested on:</b> Python 3.7+</span><br>
 <span style="color:#8be9fd"><b>Environment:</b> Kali Linux (PC) / Kali NetHunter Rootless (Mobile)
 <br>
