@@ -1,3 +1,5 @@
+import os
+import sys
 try:
     import requests
 except ImportError:
@@ -13,6 +15,7 @@ except ImportError:
 import os
 import sys
 import requests
+import shutil
 def cd_to_sharkbuster():
     for root, dirs, files in os.walk("/"):
         if "SharkBuster" in dirs:
@@ -23,10 +26,12 @@ def cd_to_sharkbuster():
     print("SharkBuster folder not found")
 
 cd_to_sharkbuster()
-def install_whisker_menu():
+def customize():
     os.system("clear")
-    os.system
-    import shutil
+    
+customize()
+def install_kali_menu():
+    
 
     home = os.path.expanduser("~")
     app_dir = os.path.join(home, ".local/share/applications")
@@ -38,11 +43,6 @@ def install_whisker_menu():
     desktop_path = os.path.join(app_dir, "sharkbuster-web.desktop")
     icon_target = os.path.join(icon_dir, "sharkbuster-web.png")
 
-    
-    if os.path.isfile(desktop_path):
-        return
-
-    
     script_dir = os.path.dirname(os.path.abspath(__file__))
     icon_source = os.path.join(script_dir, "image.png")
 
@@ -54,38 +54,21 @@ def install_whisker_menu():
 
     desktop_entry = f"""[Desktop Entry]
 Name=SharkBuster Web
-Comment=Web scanning,recon,more  tool
+Comment=Web Recon Tool
 Exec=python3 {os.path.abspath(__file__)}
 Icon=sharkbuster-web
 Terminal=true
 Type=Application
-Categories=Reconnaissance;Utility;
+Categories=KaliRecon;
 """
 
     with open(desktop_path, "w") as f:
         f.write(desktop_entry)
 
-
-install_whisker_menu()
-os.system("mkdir -p ~/.local/share/desktop-directories ~/.config/menus")
-
-os.system("""echo '[Desktop Entry]
-Name=Reconnaissance
-Icon=security-high
-Type=Directory' > ~/.local/share/desktop-directories/kali-recon.directory""")
-
-os.system("""[ -f ~/.config/menus/applications.menu ] || \
-cp /etc/xdg/menus/applications.menu ~/.config/menus/""")
-
-os.system("""grep -q sharkbuster-web.desktop ~/.config/menus/applications.menu || \
-sed -i '/<\/Menu>/i \
-<Menu>\
-<Name>Reconnaissance</Name>\
-<Directory>kali-recon.directory</Directory>\
-<Include><Filename>sharkbuster-web.desktop</Filename></Include>\
-</Menu>' ~/.config/menus/applications.menu""")
-
-os.system("xfce4-panel -r")      
+    os.system("update-desktop-database ~/.local/share/applications")
+    os.system("xfce4-panel -r")
+install_kali_menu()
+        
 
 if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
