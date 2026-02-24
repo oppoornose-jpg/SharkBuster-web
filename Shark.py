@@ -50,7 +50,7 @@ def install_kali_menu():
     shutil.copy(icon_source, icon_target)
 
     desktop_entry = f"""[Desktop Entry]
-Name=SharkBuster Web
+Name=SharkBuster
 Comment=Web Recon Tool
 Exec=python3 {os.path.abspath(__file__)}
 Icon=sharkbuster-web
@@ -71,7 +71,7 @@ if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
         V = f.read().strip()
 else:
-    V = "9.5.3"
+    V = "9.5.4"
 
 
 def check_update():
