@@ -71,7 +71,7 @@ if os.path.isfile("version.txt"):
     with open("version.txt", "r") as f:
         V = f.read().strip()
 else:
-    V = "9.5.4"
+    V = "2.0.7"
 
 
 def check_update():
@@ -94,6 +94,8 @@ def check_update():
                     print("[!] version.txt not found after update")
                 
                 print( "[*] updated  Please restart the tool manually.")
+
+                print("if you have an error with update please reinstall the tool.")
                 sys.exit(0)
 
             else:
